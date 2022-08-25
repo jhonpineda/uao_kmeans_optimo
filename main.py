@@ -60,9 +60,9 @@ def shoes_kaggle():
     train_bovw_feat = sift_vectores
 
     suma_distancias_cuadradas = []
-    K = range(5, 150, 2)
+    K = range(5, 200, 1)
     for k in K:
-        print(k)
+        #print(k)
         km = KMeans(n_clusters=k)
         km.fit(descriptor_list)
         suma_distancias_cuadradas.append(km.inertia_)
@@ -71,7 +71,9 @@ def shoes_kaggle():
     plt.xlabel('k')
     plt.ylabel('Sum_of_squared_distances')
     plt.title('Elbow Method For Optimal k')
-    plt.show()
+    #plt.show()
+
+    plt.savefig('result_k.png')
 
 
 # Press the green button in the gutter to run the script.
